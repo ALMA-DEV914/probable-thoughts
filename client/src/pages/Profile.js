@@ -9,10 +9,10 @@ import { useQuery, useMutation } from '@apollo/client';
 import ThoughtForm from '../components/ThoughtForm';
 
 
-const Profile = () => {
-  const [addFriend] = useMutation(ADD_FRIEND);
+const Profile = (props) => {
+  
   const { username: userParam } = useParams();
-
+  const [addFriend] = useMutation(ADD_FRIEND);
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
